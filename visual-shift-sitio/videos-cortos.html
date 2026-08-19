@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Videos Cortos | Visual Shift</title>
+  <meta name="description" content="Reels y videos verticales editados por Visual Shift. Estilo profesional para redes sociales.">
+  <link rel="icon" type="image/png" href="assets/img/icono.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="cortos">
+  <div class="morph-bg" aria-hidden="true">
+    <div class="blob-premium blob-premium--1"></div>
+    <div class="blob-premium blob-premium--2"></div>
+    <div class="morph-bg__veil"></div>
+  </div>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <img src="assets/img/logo-horizontal.png" alt="Visual Shift">
+      </a>
+      <button class="nav__toggle" aria-label="Abrir menú"><span></span></button>
+      <nav class="nav__links">
+        <a href="index.html" data-page="index">Inicio</a>
+        <a href="videos-cortos.html" data-page="cortos">Videos cortos</a>
+        <a href="videos-largos.html" data-page="largos">Videos largos</a>
+        <a href="https://clashivfx.com/?sca_ref=12101208.NMGcG1t6rM" class="nav__shop" target="_blank" rel="noopener noreferrer">Productos</a>
+        <a href="contacto.html" data-page="contacto" class="nav__cta">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-hero">
+      <p class="eyebrow reveal">Portfolio</p>
+      <h1 class="reveal">Videos <span>cortos</span></h1>
+      <p class="reveal">Reels y contenido vertical pensado para captar atención en segundos.</p>
+    </header>
+
+    <div class="video-gallery video-gallery--vertical">
+      <div class="video-card glass-minimal video-card--vertical video-card--live reveal">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/videos/vertical/prueba-real-estate.mp4" type="video/mp4">
+        </video>
+        <div class="video-card__label">Real Estate</div>
+      </div>
+      <div class="video-card glass-minimal video-card--vertical video-card--live reveal reveal-delay-1">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/videos/vertical/danizvfx-reel.mp4" type="video/mp4">
+        </video>
+        <div class="video-card__label">@danizvfx</div>
+      </div>
+      <div class="video-card glass-minimal video-card--vertical video-card--live reveal reveal-delay-2">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/videos/vertical/reel-whatsapp.mp4" type="video/mp4">
+        </video>
+        <div class="video-card__label">Reel</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>© 2026 Visual Shift</div>
+      <div>Post-Production Team</div>
+    </div>
+  </footer>
+
+  <div class="lightbox" aria-hidden="true">
+    <div class="lightbox__content">
+      <button class="lightbox__close" aria-label="Cerrar">&times;</button>
+      <video controls playsinline></video>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
