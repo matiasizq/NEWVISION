@@ -15,6 +15,8 @@
 @media (min-width: 900px) {
   .hero {
     flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 12rem 6rem 5rem;
   }
 }
