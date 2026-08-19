@@ -110,60 +110,6 @@
   }
 }
 
-/* Diseño de referencia: 780px de ancho. Todo se mide contra el ancho de la
-   tarjeta, así los saltos de línea son siempre los mismos y la proporción
-   no cambia al hacer zoom o cambiar de monitor. */
-@container (min-width: 200px) {
-  .about-card {
-    padding: 7.18cqw 8.21cqw;
-    border-radius: 7.69cqw;
-    box-shadow: 0 0 19.2cqw rgba(59, 130, 246, 0.3);
-  }
-
-  .about-card .eyebrow {
-    font-size: 1.54cqw;
-    margin-bottom: 2.56cqw;
-  }
-
-  .about-card__lead {
-    font-size: 5.64cqw;
-  }
-
-  .about-card__accent {
-    margin-top: 1.03cqw;
-  }
-
-  .about-card__body {
-    margin-top: 3.59cqw;
-    font-size: 2.18cqw;
-    max-width: 45.1cqw;
-  }
-
-  .about-card__line {
-    width: 12.31cqw;
-    margin: 4.1cqw 0;
-  }
-
-  .about-card__headline {
-    font-size: 6.36cqw;
-  }
-
-  .about-card__note {
-    margin-top: 3.08cqw;
-    padding: 0.32cqw 0 0.32cqw 3.08cqw;
-    font-size: 1.95cqw;
-  }
-
-  .about-card__founder {
-    margin-top: 4.1cqw;
-    width: 28.2cqw;
-  }
-
-  .about-card__founder img {
-    max-height: 17.95cqw;
-  }
-}
-
 .apple-block {
   width: min(100% - 3rem, 720px);
   margin: 0 auto;
@@ -437,6 +383,60 @@
   object-fit: contain;
   object-position: left center;
   background: transparent;
+}
+
+/* Diseño de referencia: 780px de ancho. Todo se mide contra el ancho de la
+   tarjeta, así los saltos de línea son siempre los mismos y la proporción
+   se mantiene al hacer zoom o cambiar de monitor. */
+@container (min-width: 200px) {
+  .about-card {
+    padding: 7.18cqw 8.21cqw;
+    border-radius: 7.69cqw;
+    box-shadow: 0 0 19.2cqw rgba(59, 130, 246, 0.3);
+  }
+
+  .about-card .eyebrow {
+    font-size: 1.54cqw;
+    margin-bottom: 2.56cqw;
+  }
+
+  .about-card__lead {
+    font-size: 5.64cqw;
+  }
+
+  .about-card__accent {
+    margin-top: 1.03cqw;
+  }
+
+  .about-card__body {
+    margin-top: 3.59cqw;
+    font-size: 2.18cqw;
+    max-width: 45.1cqw;
+  }
+
+  .about-card__line {
+    width: 12.31cqw;
+    margin: 4.1cqw 0;
+  }
+
+  .about-card__headline {
+    font-size: 6.36cqw;
+  }
+
+  .about-card__note {
+    margin-top: 3.08cqw;
+    padding: 0.32cqw 0 0.32cqw 3.08cqw;
+    font-size: 1.95cqw;
+  }
+
+  .about-card__founder {
+    margin-top: 4.1cqw;
+    width: 28.2cqw;
+  }
+
+  .about-card__founder img {
+    max-height: 17.95cqw;
+  }
 }
 
 /* Studio */
