@@ -206,10 +206,10 @@
   .nav__inner {
     width: 100%;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: clamp(0.25rem, 1.2vw, 0.55rem);
-    padding: 0.45rem clamp(0.6rem, 2.2vw, 0.95rem);
+    gap: clamp(0.2rem, 1vw, 0.5rem);
+    padding: 0.7rem clamp(0.6rem, 2.2vw, 0.95rem);
     border-radius: 999px;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
@@ -222,15 +222,16 @@
     width: auto;
     justify-content: center;
     padding-top: 0;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .nav__brand img {
-    height: 21px;
+    height: 24px;
     width: auto;
-    max-width: clamp(58px, 17vw, 80px);
+    max-width: clamp(44px, 16vw, 82px);
     object-fit: contain;
-    object-position: center;
+    object-position: left center;
     filter: none;
   }
 
@@ -242,10 +243,11 @@
     position: static;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     align-items: center;
-    gap: clamp(0.25rem, 1.2vw, 0.5rem);
+    gap: clamp(0.15rem, 0.8vw, 0.45rem);
     width: auto;
+    min-width: 0;
     padding: 0;
     opacity: 1;
     pointer-events: auto;
@@ -261,13 +263,13 @@
     text-align: center;
     padding: 0;
     border: none;
-    font-size: clamp(9px, 2.5vw, 11px);
+    font-size: clamp(8px, 2.5vw, 11px);
     white-space: nowrap;
   }
 
   .nav__links a.nav__cta {
-    padding: 0.26rem clamp(0.35rem, 1.6vw, 0.55rem);
-    font-size: clamp(9px, 2.5vw, 11px);
+    padding: 0.36rem clamp(0.3rem, 1.6vw, 0.6rem);
+    font-size: clamp(8px, 2.5vw, 11px);
     font-weight: 700;
     color: #000;
     background: #fff;
@@ -275,8 +277,8 @@
   }
 
   .nav__links a.nav__shop {
-    padding: 0.26rem clamp(0.35rem, 1.6vw, 0.55rem);
-    font-size: clamp(9px, 2.5vw, 11px);
+    padding: 0.36rem clamp(0.3rem, 1.6vw, 0.6rem);
+    font-size: clamp(8px, 2.5vw, 11px);
     font-weight: 700;
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.35);
