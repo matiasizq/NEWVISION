@@ -3,8 +3,6 @@
   min-height: 100vh;
   min-height: 100svh;
   width: 100%;
-  max-width: 1560px;
-  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,60 +105,62 @@
 
   .hero__side {
     width: 45%;
+    max-width: 780px;
     container-type: inline-size;
   }
 }
 
-/* El bloque escala como una pieza única: todo se mide contra el ancho
-   de la tarjeta, así los saltos de línea y la proporción no cambian. */
+/* Diseño de referencia: 780px de ancho. Todo se mide contra el ancho de la
+   tarjeta, así los saltos de línea son siempre los mismos y la proporción
+   no cambia al hacer zoom o cambiar de monitor. */
 @container (min-width: 200px) {
   .about-card {
-    padding: 10cqw 11.4cqw;
-    border-radius: 10.7cqw;
-    box-shadow: 0 0 26cqw rgba(59, 130, 246, 0.3);
+    padding: 7.18cqw 8.21cqw;
+    border-radius: 7.69cqw;
+    box-shadow: 0 0 19.2cqw rgba(59, 130, 246, 0.3);
   }
 
   .about-card .eyebrow {
-    font-size: 2.14cqw;
-    margin-bottom: 3.57cqw;
+    font-size: 1.54cqw;
+    margin-bottom: 2.56cqw;
   }
 
   .about-card__lead {
-    font-size: 7.7cqw;
+    font-size: 5.64cqw;
   }
 
   .about-card__accent {
-    margin-top: 1.43cqw;
+    margin-top: 1.03cqw;
   }
 
   .about-card__body {
-    margin-top: 5cqw;
-    font-size: 3.04cqw;
-    max-width: 63cqw;
+    margin-top: 3.59cqw;
+    font-size: 2.18cqw;
+    max-width: 45.1cqw;
   }
 
   .about-card__line {
-    width: 17cqw;
-    margin: 5.7cqw 0;
+    width: 12.31cqw;
+    margin: 4.1cqw 0;
   }
 
   .about-card__headline {
-    font-size: 9.25cqw;
+    font-size: 6.36cqw;
   }
 
   .about-card__note {
-    margin-top: 4.3cqw;
-    padding: 0.45cqw 0 0.45cqw 4.3cqw;
-    font-size: 2.7cqw;
+    margin-top: 3.08cqw;
+    padding: 0.32cqw 0 0.32cqw 3.08cqw;
+    font-size: 1.95cqw;
   }
 
   .about-card__founder {
-    margin-top: 5.7cqw;
-    width: 39cqw;
+    margin-top: 4.1cqw;
+    width: 28.2cqw;
   }
 
   .about-card__founder img {
-    max-height: 25cqw;
+    max-height: 17.95cqw;
   }
 }
 
