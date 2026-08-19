@@ -101,6 +101,10 @@
   gap: 1.15rem;
 }
 
+.nav__label-short {
+  display: none;
+}
+
 .nav__links a {
   font-family: var(--font);
   font-size: 13px;
@@ -204,29 +208,14 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 0.7rem;
+    gap: clamp(0.25rem, 1.2vw, 0.55rem);
+    padding: 0.45rem clamp(0.6rem, 2.2vw, 0.95rem);
     border-radius: 999px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(60px);
     -webkit-backdrop-filter: blur(60px);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .nav__inner::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Los navegadores descartan el padding derecho al final de un scroll
-     horizontal, así que reservamos el espacio con un elemento real. */
-  .nav__inner::after {
-    content: "";
-    flex: 0 0 0.55rem;
-    height: 1px;
   }
 
   .nav__brand {
@@ -239,7 +228,7 @@
   .nav__brand img {
     height: 21px;
     width: auto;
-    max-width: 80px;
+    max-width: clamp(58px, 17vw, 80px);
     object-fit: contain;
     object-position: center;
     filter: none;
@@ -253,9 +242,9 @@
     position: static;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
-    gap: 0.4rem;
+    gap: clamp(0.25rem, 1.2vw, 0.5rem);
     width: auto;
     padding: 0;
     opacity: 1;
@@ -272,13 +261,13 @@
     text-align: center;
     padding: 0;
     border: none;
-    font-size: 10px;
+    font-size: clamp(9px, 2.5vw, 11px);
     white-space: nowrap;
   }
 
   .nav__links a.nav__cta {
-    padding: 0.26rem 0.5rem;
-    font-size: 10px;
+    padding: 0.26rem clamp(0.35rem, 1.6vw, 0.55rem);
+    font-size: clamp(9px, 2.5vw, 11px);
     font-weight: 700;
     color: #000;
     background: #fff;
@@ -286,8 +275,8 @@
   }
 
   .nav__links a.nav__shop {
-    padding: 0.26rem 0.5rem;
-    font-size: 10px;
+    padding: 0.26rem clamp(0.35rem, 1.6vw, 0.55rem);
+    font-size: clamp(9px, 2.5vw, 11px);
     font-weight: 700;
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -321,6 +310,18 @@
     justify-content: center;
     text-align: center;
     gap: 0.75rem;
+  }
+}
+
+/* En pantallas angostas los enlaces usan su etiqueta corta para que
+   la barra entre completa sin desplazamiento. */
+@media (max-width: 560px) {
+  .nav__label-full {
+    display: none;
+  }
+
+  .nav__label-short {
+    display: inline;
   }
 }
 
