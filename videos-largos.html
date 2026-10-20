@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -11,9 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/components.css?v=20260819i">
-  <link rel="stylesheet" href="css/pages.css?v=20260819i">
+  <link rel="stylesheet" href="css/animations.css?v=20261020c">
+  <link rel="stylesheet" href="css/components.css?v=20261020c">
+  <link rel="stylesheet" href="css/pages.css?v=20261020c">
 </head>
 <body data-page="largos">
   <div class="morph-bg" aria-hidden="true">
@@ -27,54 +27,115 @@
       <a href="index.html" class="nav__brand">
         <img src="assets/img/logo-horizontal.png" alt="Visual Shift">
       </a>
-      <button class="nav__toggle" aria-label="Abrir menú"><span></span></button>
+      <button class="nav__toggle" type="button" data-i18n-aria="nav.menu" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
       <nav class="nav__links">
-        <a href="index.html" data-page="index">Inicio</a>
-        <a href="videos-cortos.html" data-page="cortos"><span class="nav__label-full">Videos cortos</span><span class="nav__label-short">Cortos</span></a>
-        <a href="videos-largos.html" data-page="largos"><span class="nav__label-full">Videos largos</span><span class="nav__label-short">Largos</span></a>
-        <a href="https://clashivfx.com/?sca_ref=12101208.NMGcG1t6rM" class="nav__shop" target="_blank" rel="noopener noreferrer">Productos</a>
-        <a href="contacto.html" data-page="contacto" class="nav__cta">Contacto</a>
+        <div class="nav__primary">
+          <a href="index.html" data-page="index" data-i18n="nav.home">Inicio</a>
+          <a href="videos-cortos.html" data-page="cortos"><span class="nav__label-full" data-i18n="nav.shorts">Videos cortos</span><span class="nav__label-short" data-i18n="nav.shortsShort">Cortos</span></a>
+          <a href="videos-largos.html" data-page="largos"><span class="nav__label-full" data-i18n="nav.longs">Videos largos</span><span class="nav__label-short" data-i18n="nav.longsShort">Largos</span></a>
+        </div>
+        <a href="https://clashivfx.com/?sca_ref=12101208.NMGcG1t6rM" class="nav__shop" target="_blank" rel="noopener noreferrer" data-i18n="nav.products">Productos</a>
+        <a href="contacto.html" data-page="contacto" class="nav__cta" data-i18n="nav.contact">Contacto</a>
       </nav>
+    </div>
+    <div class="nav__lang" role="group" data-i18n-aria="nav.lang" aria-label="Idioma">
+      <button type="button" class="nav__lang-btn is-active" data-lang="es" aria-pressed="true" data-i18n-aria="nav.lang.es" aria-label="Español">
+        <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="18" fill="#c60b1e"/><path fill="#ffc400" d="M0 11h36v14H0z"/></svg>
+      </button>
+      <button type="button" class="nav__lang-btn" data-lang="en" aria-pressed="false" data-i18n-aria="nav.lang.en" aria-label="English">
+        <svg viewBox="0 0 36 36" aria-hidden="true"><defs><clipPath id="vs-us"><circle cx="18" cy="18" r="18"/></clipPath></defs><g clip-path="url(#vs-us)"><path fill="#b22234" d="M0 0h36v36H0z"/><path stroke="#fff" stroke-width="3" d="M0 6h36M0 12h36M0 18h36M0 24h36M0 30h36"/><path fill="#3c3b6e" d="M0 0h16v16H0z"/></g></svg>
+      </button>
     </div>
   </header>
 
   <main>
     <header class="page-hero">
-      <p class="eyebrow reveal">Portfolio</p>
-      <h1 class="reveal">Videos <span>largos</span></h1>
-      <p class="reveal">YouTube, VSL y contenido horizontal con narrativa y ritmo profesional.</p>
+      <div class="section-title reveal" data-reveal="title">
+        <p class="section-title__eyebrow" data-i18n="port.eyebrow">Portfolio</p>
+        <h1 class="section-title__heading section-title__heading--single">
+          <span class="section-title__line section-title__line--bright" data-i18n="port.longs.title">Videos largos</span>
+        </h1>
+      </div>
+      <p class="page-hero__lead reveal" data-reveal="lead" data-i18n="port.longs.lead">YouTube, VSL y contenido horizontal con narrativa y ritmo profesional.</p>
     </header>
 
-    <div class="video-gallery video-gallery--horizontal">
-      <div class="video-card glass-minimal video-card--horizontal video-card--live reveal">
-        <video autoplay muted loop playsinline preload="auto">
-          <source src="assets/videos/horizontal/sfx-deck-fondo-pag.mp4" type="video/mp4">
-        </video>
-        <div class="video-card__label">SFX Deck</div>
+    <div class="video-gallery video-gallery--horizontal" data-cols="2">
+      <div class="gallery-item reveal" data-col="0">
+        <div class="video-card glass-minimal video-card--horizontal video-card--live">
+          <video muted loop playsinline preload="none" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture data-guard-src="YXNzZXRzL3ZpZGVvcy9ob3Jpem9udGFsL3NmeC1kZWNrLWZvbmRvLXBhZy5tcDQ=" data-guard-type="video/mp4"></video>
+          <div class="video-card__label">SFX Deck</div>
+        </div>
       </div>
-      <div class="video-card glass-minimal video-card--horizontal video-card--live reveal reveal-delay-1">
-        <video autoplay muted loop playsinline preload="auto">
-          <source src="assets/videos/horizontal/MOTIONS_1.mp4" type="video/mp4">
-        </video>
-        <div class="video-card__label">Motions</div>
+      <div class="gallery-item reveal" data-col="1">
+        <div class="video-card glass-minimal video-card--horizontal video-card--live">
+          <video muted loop playsinline preload="none" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture data-guard-src="YXNzZXRzL3ZpZGVvcy9ob3Jpem9udGFsL01PVElPTlNfMS5tcDQ=" data-guard-type="video/mp4"></video>
+          <div class="video-card__label">Motions</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-col="0">
+        <div class="video-card glass-minimal video-card--horizontal video-card--live">
+          <video muted loop playsinline preload="none" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture data-guard-src="YXNzZXRzL3ZpZGVvcy9ob3Jpem9udGFsL2RvY3VtZW50YWwtcG9kY2FzdC53ZWJt" data-guard-type="video/webm"></video>
+          <div class="video-card__label" data-i18n="label.docPodcast">Documental · Podcast</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-col="1">
+        <div class="video-card glass-minimal video-card--horizontal video-card--live">
+          <video muted loop playsinline preload="none" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture data-guard-src="YXNzZXRzL3ZpZGVvcy9ob3Jpem9udGFsL2ludHJvcy53ZWJt" data-guard-type="video/webm"></video>
+          <div class="video-card__label">Intros</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-col="0">
+        <div class="video-card glass-minimal video-card--horizontal video-card--live">
+          <video muted loop playsinline preload="none" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture data-guard-src="YXNzZXRzL3ZpZGVvcy9ob3Jpem9udGFsL21vdGlvbnMud2VibQ==" data-guard-type="video/webm"></video>
+          <div class="video-card__label">Motions</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-col="1">
+        <div class="video-card glass-minimal video-card--horizontal video-card--live">
+          <video muted loop playsinline preload="none" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture data-guard-src="YXNzZXRzL3ZpZGVvcy9ob3Jpem9udGFsL3Zsb2dzLndlYm0=" data-guard-type="video/webm"></video>
+          <div class="video-card__label">Vlogs</div>
+        </div>
       </div>
     </div>
   </main>
 
   <footer class="footer">
     <div class="footer__inner">
-      <div>© 2026 Visual Shift</div>
-      <div>Post-Production Team</div>
+      <div class="footer__copy">© 2026 Visual Shift</div>
+      <nav class="footer__social" data-i18n-aria="footer.social" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/visual_shift_/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/visualshiftt" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"></path>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@visual_shift_" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M16.5 3c.4 2.4 2 4.2 4.5 4.6v2.6c-1.5-.1-2.9-.6-4.1-1.5v5.7c0 3.5-2.8 6.3-6.3 6.3S4.3 18 4.3 14.4c0-3.5 2.8-6.3 6.3-6.3.4 0 .8 0 1.2.1v2.8c-.4-.2-.8-.2-1.2-.2-2 0-3.5 1.6-3.5 3.6s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5V3h2.4z"></path>
+          </svg>
+        </a>
+      </nav>
+      <div class="footer__meta">Post-Production Team</div>
     </div>
   </footer>
 
   <div class="lightbox" aria-hidden="true">
     <div class="lightbox__content">
-      <button class="lightbox__close" aria-label="Cerrar">&times;</button>
-      <video controls playsinline></video>
+      <button class="lightbox__close" data-i18n-aria="lightbox.close" aria-label="Cerrar">&times;</button>
+      <video playsinline controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture></video>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/i18n.js?v=20261020c"></script>
+  <script src="js/video-guard.js?v=20261020c"></script>
+  <script src="js/main.js?v=20261020c"></script>
 </body>
 </html>
