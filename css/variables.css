@@ -1,9 +1,9 @@
-﻿:root {
+:root {
   --bg: #000000;
   --white: #ffffff;
   --text: #f5f5f7;
   --muted: #86868b;
-  --homeworld: #2e8add;
+  --homeworld: #2E8ADD;
   --clarinet: #002552;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --glass-bg: rgba(255, 255, 255, 0.015);
