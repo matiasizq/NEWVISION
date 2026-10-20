@@ -69,6 +69,19 @@ function initReveal() {
   const galleryItems = els.filter((el) => el.classList.contains("gallery-item"));
   const otherEls = els.filter((el) => !el.classList.contains("gallery-item"));
 
+  // Hero is above-the-fold: reveal on load (iOS Safari often won't fire IO until scroll)
+  const heroReveals = new Set(
+    [...document.querySelectorAll(".hero .reveal")].filter((el) => els.includes(el))
+  );
+  const revealHero = () => {
+    heroReveals.forEach((el) => {
+      el.classList.add("is-visible");
+    });
+  };
+  revealHero();
+  requestAnimationFrame(() => requestAnimationFrame(revealHero));
+  window.addEventListener("pageshow", revealHero, { once: true });
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -92,13 +105,14 @@ function initReveal() {
         observer.unobserve(el);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.08, rootMargin: "48px 0px 48px 0px" }
   );
 
   const title = document.querySelector('[data-reveal="title"]');
   const lead = document.querySelector('[data-reveal="lead"]');
 
   otherEls.forEach((el) => {
+    if (heroReveals.has(el)) return;
     if (title && (el === title || el === lead)) return;
     observer.observe(el);
   });

@@ -1100,7 +1100,7 @@
 
 @media (max-width: 899px) {
   .scroll-hint {
-    bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
+    display: none;
   }
 }
 
@@ -2243,12 +2243,12 @@ html[lang="en"] .contact-glass__features {
     padding:
       calc(7.85rem + env(safe-area-inset-top, 0px))
       1.15rem
-      calc(4.75rem + env(safe-area-inset-bottom, 0px));
+      calc(5.4rem + env(safe-area-inset-bottom, 0px));
     gap: 0.85rem;
   }
 
   .hero__stage {
-    gap: 2rem;
+    gap: 1.65rem;
     flex: 0 1 auto;
     justify-content: flex-start;
     padding-top: 0.35rem;
