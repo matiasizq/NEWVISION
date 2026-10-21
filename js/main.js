@@ -1,3 +1,107 @@
+(function initMetaPixelConsent() {
+  const pixelId = "1115704540940243";
+  const consentKey = "visualshift_meta_marketing_consent";
+  let pixelInitialized = false;
+
+  function trackContact(event) {
+    const link = event.target.closest("a[href*='wa.me/']");
+    if (link && window.fbq) window.fbq("track", "Contact");
+  }
+
+  function loadMetaPixel() {
+    if (window.fbq) {
+      window.fbq("consent", "grant");
+      window.fbq("track", "PageView");
+      document.removeEventListener("click", trackContact, true);
+      document.addEventListener("click", trackContact, true);
+      pixelInitialized = true;
+      return;
+    }
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", pixelId);
+    window.fbq("track", "PageView");
+    document.addEventListener("click", trackContact, true);
+    pixelInitialized = true;
+  }
+
+  function saveConsent(value) {
+    try {
+      window.localStorage.setItem(consentKey, value);
+    } catch (error) {}
+    if (value === "accepted") {
+      loadMetaPixel();
+      return;
+    }
+    if (window.fbq) window.fbq("consent", "revoke");
+    document.removeEventListener("click", trackContact, true);
+    ["_fbp", "_fbc"].forEach((name) => {
+      document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax";
+    });
+  }
+
+  const style = document.createElement("style");
+  style.textContent = ".vs-cookie-banner{position:fixed;z-index:99999;left:0;right:0;bottom:0;padding:16px 20px;background:#10141b;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:18px;font:14px/1.5 Inter,Arial,sans-serif;box-shadow:0 -8px 30px #0004}.vs-cookie-banner__copy{max-width:900px}.vs-cookie-banner__copy strong{display:block;font-size:15px}.vs-cookie-banner__copy p{margin:4px 0 0;color:#d4d9e3}.vs-cookie-banner__actions{display:flex;gap:8px;flex-shrink:0}.vs-cookie-banner button,.vs-cookie-settings{min-height:42px;padding:9px 14px;border-radius:8px;font:600 14px/1.2 Inter,Arial,sans-serif;cursor:pointer}.vs-cookie-banner button[data-choice='reject']{color:#fff;background:transparent;border:1px solid #9aa6b8}.vs-cookie-banner button[data-choice='accept']{color:#07111f;background:#8cc7ff;border:1px solid #8cc7ff}.vs-cookie-settings{margin:12px 0 0 12px;color:#d4d9e3;background:transparent;border:1px solid #768397}.vs-cookie-banner a{color:#a8d8ff}@media(max-width:700px){.vs-cookie-banner{align-items:stretch;flex-direction:column;padding:14px}.vs-cookie-banner__actions{display:grid;grid-template-columns:1fr 1fr}.vs-cookie-banner button{width:100%}}";
+  document.head.appendChild(style);
+
+  const footer = document.querySelector(".footer__inner");
+  if (footer && !document.querySelector(".vs-cookie-settings")) {
+    const settings = document.createElement("button");
+    settings.type = "button";
+    settings.className = "vs-cookie-settings";
+    settings.textContent = "Cookies / Cookies";
+    settings.setAttribute("aria-label", "Cookie preferences / Preferencias de cookies");
+    footer.appendChild(settings);
+  }
+
+  function showConsentBanner() {
+    let banner = document.getElementById("vs-cookie-consent");
+    if (banner) {
+      banner.hidden = false;
+      return;
+    }
+    banner = document.createElement("aside");
+    banner.id = "vs-cookie-consent";
+    banner.className = "vs-cookie-banner";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-live", "polite");
+    banner.innerHTML = "<div class='vs-cookie-banner__copy'><strong>Cookies publicitarias / Marketing cookies</strong><p>Usamos el píxel de Meta para medir visitas y clics a WhatsApp. Si aceptás, Meta recibirá esos datos para medir nuestros anuncios. Podés cambiar tu elección desde el botón Cookies del pie. / We use Meta Pixel to measure visits and WhatsApp clicks. If you accept, Meta receives this data to measure our ads. You can change your choice with the Cookies button in the footer.</p></div><div class='vs-cookie-banner__actions'><button type='button' data-choice='reject'>Rechazar / Reject</button><button type='button' data-choice='accept'>Aceptar / Accept</button></div>";
+    banner.querySelector("[data-choice='accept']").addEventListener("click", () => {
+      saveConsent("accepted");
+      banner.remove();
+    });
+    banner.querySelector("[data-choice='reject']").addEventListener("click", () => {
+      saveConsent("rejected");
+      banner.remove();
+    });
+    document.body.appendChild(banner);
+  }
+
+  const settings = document.querySelector(".vs-cookie-settings");
+  if (settings) settings.addEventListener("click", showConsentBanner);
+
+  let consent = null;
+  try {
+    consent = window.localStorage.getItem(consentKey);
+  } catch (error) {}
+  if (consent === "accepted") loadMetaPixel();
+  else if (consent !== "rejected") showConsentBanner();
+})();
+
 function i18n(key, fallback) {
   return window.VisualShiftI18n?.t?.(key) || fallback;
 }
