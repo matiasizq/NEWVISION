@@ -63,8 +63,8 @@
     const settings = document.createElement("button");
     settings.type = "button";
     settings.className = "vs-cookie-settings";
-    settings.textContent = "Cookies / Cookies";
-    settings.setAttribute("aria-label", "Cookie preferences / Preferencias de cookies");
+    settings.textContent = "Cookies";
+    settings.setAttribute("aria-label", "Preferencias de cookies");
     footer.appendChild(settings);
   }
 
@@ -79,7 +79,7 @@
     banner.className = "vs-cookie-banner";
     banner.setAttribute("role", "dialog");
     banner.setAttribute("aria-live", "polite");
-    banner.innerHTML = "<div class='vs-cookie-banner__copy'><strong>Cookies publicitarias / Marketing cookies</strong><p>Usamos el píxel de Meta para medir visitas y clics a WhatsApp. Si aceptás, Meta recibirá esos datos para medir nuestros anuncios. Podés cambiar tu elección desde el botón Cookies del pie. / We use Meta Pixel to measure visits and WhatsApp clicks. If you accept, Meta receives this data to measure our ads. You can change your choice with the Cookies button in the footer.</p></div><div class='vs-cookie-banner__actions'><button type='button' data-choice='reject'>Rechazar / Reject</button><button type='button' data-choice='accept'>Aceptar / Accept</button></div>";
+    banner.innerHTML = "<div class='vs-cookie-banner__copy'><strong>Cookies y medición</strong><p>Usamos el píxel de Meta para medir visitas y clics en WhatsApp. Si aceptás, Meta recibirá esos datos para medir los anuncios. Podés cambiar tu elección desde el botón «Cookies» del pie de página.</p></div><div class='vs-cookie-banner__actions'><button type='button' data-choice='reject'>Rechazar</button><button type='button' data-choice='accept'>Aceptar</button></div>";
     banner.querySelector("[data-choice='accept']").addEventListener("click", () => {
       saveConsent("accepted");
       banner.remove();
